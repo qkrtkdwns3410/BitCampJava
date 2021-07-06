@@ -1,4 +1,4 @@
-package javaBasic;
+package javaBasic.ch6;
 
 /*
 객체지향 언어 = 프로그래밍언어 + 객체지향개념(규칙)

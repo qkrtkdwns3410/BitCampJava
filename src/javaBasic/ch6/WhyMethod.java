@@ -1,4 +1,4 @@
-package javaBasic;
+package javaBasic.ch6;
 
 public class WhyMethod {
     public static void main(String[] args) {
