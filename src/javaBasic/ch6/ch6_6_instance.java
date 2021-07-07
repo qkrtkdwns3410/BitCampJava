@@ -20,6 +20,16 @@ public class ch6_6_instance {
         tv.channelDown();   //Tv인스턴스의 메서드 channelDown()을 호출한다. (메서드 호출)
         System.out.println("현재 채널은 " + tv.channel + " 입니다.");
 
+        Tv tv2 = new Tv();
+        tv.channel = 3; //Tv인스턴스의 멤버변수 channel의 값은 7로
+
+        System.out.println("현재 채널은 " + tv2.channel + " 입니다."); //객체마다 별도의 값이 들어갑니다 0x200을 참조합니다. tv1의 경우 0x100을 참조합니다.
+
+        //tv1= tv2 로 tv1의 메모리가 사라지면
+        //가비지 콜렉션가 발동됩니다.
+        //메모리 낭비를 막아주는 기능입니다.
+
+
     }
 
 }
