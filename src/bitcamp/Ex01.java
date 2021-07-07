@@ -61,8 +61,8 @@ https://devuna.tistory.com/22
 변수가 선언되는 위치 (scope : 유효범위 오름차순)
     1. instance variable    :   객체변수    >>  class Person{  int(타입) age(변수); } //클래스 안에 들어가는 변수를 ""객체변수""라고 일컫습니다.
     2. local variable   :   지역변수    (   지역: 함수 내부   )   >> class Person {   void run(){  int speed;   }    } >함수 내부에 존재하고 함수를 벗어나면 없어지는 변수입니다.
-    3. 함수 안에 제어블록 (if , for) 안에 있는 변수  ( 블럭 변수 )
-    class Person {   void run() {       for (int  i=0;....   } int i >> 블록 변수 ㅇㅇ ㅋㅋ
+    3. 함수 안에 제어블록 ( if , for ) 안에 있는 변수  ( 블럭 변수 )
+    class Person {   void run() {       for ( int  i=0;....   } int i >> 블록 변수 ㅇㅇ ㅋㅋ
     4. static variable : 공유자원 (객체 간 공유자원 )
 
 
@@ -70,19 +70,62 @@ https://devuna.tistory.com/22
 //하나의 물리적인 자바파일은 여러개의 클래스를 가질 수 있습니다. but public 제어자는 하나의 클래스만 사용할 수 있습니다.
 
 
-import javax.swing.table.AbstractTableModel;
-
 class Apt { // 독자적인 실행이 불가능한 함수입니다.
     int iv = 100;
-    // 객체 변수 ( local variable )
+    // 객체 변수 ( local variable )  // 객체 변수 ( local variable ) // 객체 변수 ( local variable ) // 객체 변수 ( local variable ) // 객체 변수 ( local variable )
+
+
     // 초기화 ( 변수에 처음으로 값을 넣는 행위 )
     // 객체 변수 ( 내부적으로 default 값을 가집니다 )
+
+
     int window; // 내부적으로 기본값(default) INT >> 0의 값을 가집니다. ** String >null ** char> null **
 
     //초기화 : 변수가 처음으로 값을 갖는 것 ( 할당을 통해서 )
     //질문 : why window 변수는 초기화를 하지 않아도 사용가능 할까요??
+    //설계자의 의도 : 디폴트 값으로 초기화 시킨 의도 >> 당신이 만드는 아파트마다 창문의 개수는 너의 마음대로 해라.
+
+
+    Apt() { // 함수 : (생성자 함수 : 특수한 목적의 함수입니다. : 클래스의 이름이 함수의 이름과 동일합니다.. (Constructor) ) 기능
+        // 아파트가 지어질 때 제일 먼저 실행되는 기능
+        // 객체가 생성될때 자동으로 호출되는 함수입니다. >> 객체 생성과 동시에 호출되는 함수
+        //default constructor (기본 생성자) >>
+    }
+
+
+
+
+    Apt(int data) { //매개변수 ( Parameter : 인자 인수 매개값 전달값 )가 존재하는 생성자 >> 함수 오버로딩 .. (overloading ) : 하나의 이름으로 여러가지 기능을 수행하는 것입니다.
+        this.window = data; //매개변수에 어떠한 값을 입력한다면 .. 윈도우의 개수가 할당됩니다..
+
+    }
+
+
+    void write() { // (독립적인 함수)기능 행위 ( method )
+        //함수 (호출하지 않는다면 실행되지 않습니다.) call 하면 실행 >> call by reference (참조에 의한 호출)
+
+        int num = 1111;    // 지역변수 ( local variable ) ( 함수 안에 ) >> write 라는 이름을 부르면 생성 >> 함수가 종료되면 사라지는 변수입니다.
+
+        //함수 안의 지역변수는 """무조건 사용된다고 생각하고 정의됩니다""" <<<<<초기화 필수!!>>>>>
+        //함수 안의 지역변수는 """무조건 사용된다고 생각하고 정의됩니다""" <<<<<초기화 필수!!>>>>>
+        //함수 안의 지역변수는 """무조건 사용된다고 생각하고 정의됩니다""" <<<<<초기화 필수!!>>>>>
+        //함수 안의 지역변수는 """무조건 사용된다고 생각하고 정의됩니다""" <<<<<초기화 필수!!>>>>>
+        //함수 안의 지역변수는 """무조건 사용된다고 생각하고 정의됩니다""" <<<<<초기화 필수!!>>>>>
+        //함수 안의 지역변수는 """무조건 사용된다고 생각하고 정의됩니다""" <<<<<초기화 필수!!>>>>>
+        //함수 안의 지역변수는 """무조건 사용된다고 생각하고 정의됩니다""" <<<<<초기화 필수!!>>>>>
+
+        ////////////////////////////////초기화 : 변수에 최초로 값을 할당해주는 행위입니다.
+        //////////////////////////////////기본값 : 원래 변수가 가진 값.
+
+        System.out.println("write 함수의 지역변수 num: "+num);
+    }
 
 }
+
+
+
+
+
 
 public class Ex01 { //독자적인 실행이 가능한 함수입니다 (psvm이 존재하기에)
 
@@ -99,7 +142,18 @@ public class Ex01 { //독자적인 실행이 가능한 함수입니다 (psvm이 
         System.out.println("i 지역변수 : " + i); //실행 버튼 (실행의 의미 : 컴파일(javac명령) + 실행(java명령)) >>인텔리제이 이클립스 내장 창을 가지고 보여주는거임
 
         Apt apt1 = new Apt(); // 집을 짓는 행위 ( 메모리에 올리는 행위입니다 )
+        apt1.window = 2;
 
+        Apt apt2 = new Apt();
+        apt2.window = 6;
+
+        Apt apt3 = new Apt(); //디폴트 값 창문 0개입니다.
+
+        Apt apt4 = new Apt(4); //매개변수가 this.window = **data**에 할당됩니다.   //창문 4개 초기화통해서 ....
+        System.out.println(apt4.window);
+
+        Apt apt5 = new Apt();
+        apt5.write();
     }
 
 }
