@@ -33,6 +33,8 @@ package org.bitcamp;
     2. 주소 타입(객체의 주소)      : 클래스 , 배열 등등 ..... 변수에 값이 저장되는 것이 아니고 주소값이 저장되는 참조타입니다.
  */
 
+import java.util.zip.DeflaterOutputStream;
+
 class Car {
     String color;
     int window;
@@ -83,11 +85,148 @@ public class Ex02_DataType {
 
         long b = 10000000000L; //강제로 그릇의 크기를 늘립니다. >> 4바이트 >>8바이트로  //
 
-        int p2 = (int) 1000L; //>>타입 문제가 발생합니다. ! 8바이트의 값을 4바이트의 변수에 담으려고 하니까 에러가 발생하는거임 ! >> 작은 그릇에 큰 그릇을 넣을 수 없습니다. >>(int)로 형변환 하면 사용은 할 수 있습니다.
+        int p2 = (int) 10000L; //>>타입 문제가 발생합니다. ! 8바이트의 값을 4바이트의 변수에 담으려고 하니까 에러가 발생하는거임 ! >> 작은 그릇에 큰 그릇을 넣을 수 없습니다. >>(int)로 형변환 하면 사용은 할 수 있습니다.
+        //해당 코드가 문제가 있는가??? >> 문제 없지 않을까? >>큰수의 경우는 문제가 없지
+        System.out.println(p2);
+
+        int p3 = (int) 100000000000000L; //큰수이기때문에 8바이트 데이터가 4바이트 데이터로 변환되면서 ********* 쓰레기값 ********** 이 발생합니다..
+        System.out.println(p3);
+
+        //결론 : 작은 값을 큰 그릇에 담는건 문제 X 그릇보다 큰 값을 변환해서 넣는다면 문제가 발생합니다 !!
+        long p4 = 100000000000000L;
+        System.out.println(p4);
+
+        //사용자가 입력하는 정수값은 무조건 : 리터럴값이 됩니다 >>int 그릇에 담기게 되는 것입니다.
+
+
+        //char : 2Byte : 한 문자를 저장 할 수 있는 타입 : 내부적으로는 정수값을 가지고 있습니다.
+        //한 문자 :    'A',   '가'  :   char ch = 'A' ;  char ch2 = '가';
+        //문자열   :   "홍길동"   ,   "ABC"   :   String str = "홍길동"; , String str2 = "ABC";
+
+        char single = 'a';
+        System.out.println(single);
+        String name = "홍길동";
+        System.out.println(name);
+
+        int intch = 'A'; //char값. 2바이트 >> 정수로 자동으로 형변환 정수값보다 작은 형태이기때문에 출력이 됩니다.
+        System.out.println(intch); //ASCII 값이 출력됩니다. >> 65출력  >> 소문자 'a' 의 경우는 97이 출력됩니다.
+        System.out.println("intch : " + (char) intch);
+
+        //char 와 정수 (int) 서로 호환가능하다.
+        //문자 >> 숫자  ,   숫자(char) >> 문자
+
+        char ch2 = 'a';
+        System.out.println(ch2);
+        int intch2 = ch2; //char >> int 암시적 형변환됩니다.. 뭐 강제적으로 형변환도 가능은 합니다.
+
+        System.out.println(intch2);
+
+        int intch3 = 65;
+//        char ch3 =  intch3; //int 형을 char형에 넣으면 4바이트 >> 2바이트
+        //속지말자 : 값을 보지말고 값이 가지는 타입을 보자
+        //정답>> 명시적 형변환을 해야합니다.
+        char ch3 = (char) intch3;
+        System.out.println("ch3 : " + ch3);
+
+        //발생할 수 있는 문제점 : 65라는  숫자가 char 타입에 속하는 경우는 (데이터 손실없이)
+        //int  intch3 = 10000000; 인 경우 char로 명시적 형변환을 하는 경우 >> 큰 값을 강제로 작은 것에 구겨넣으면 >> 데이터의 손실이 발생 (Overflow)
+
+        int intch4 = ch3; //>> 아마 """"암시적 형변환""""이 발생 할 것입니다
+        //내부적으로 컴파일러는
+        //코드를 다시 만듭니다.
+        //int intch4 = (int)ch3; 코드 재생산 실행 합니다.
+
+        /*
+       Today Point
+       1.   할당에서 변수가 가지고 있는 값을 보지말고 변수의 타입을 보자
+       1.1 정수 리터럴의 기본 타입은 int
+       2.   변수가 가지는 타입을 확인하자
+       3.   큰 타입에는 작은 타입을 넣을 수 있다 (자동 형변환)
+       4. 작은 타입에는 큰 타입을 넣을 수 없다. (하고 싶다면 """강제적 형변환""" 필수!)
+
+       ex)
+       char <-- int >>>>        char <-- (char)int : 데이터손실 발생 가능성있음.
+       int     <--  char >>>>       컴파일러가 int <---- (int)char   :작은 값을 큰 그릇에 넣는 거니까 >> 문제 없습니다.
+         */
+
+        int intvalue = 12938901;
+        byte bytevalue = (byte) intvalue; //데이터 손실 발생
+        System.out.println(bytevalue); //쓰레기 값이 나옵니다..
+
+        //String (문자열)
+        name = "박상준";
+        System.out.println(name);
+
+        String name2 = name + " 하이";
+        System.out.println(name2); //문자열 + 문자열 (결합)
+
+        //자바 : + (산술 , 결합)
+        //Oracle > +산술      , || 결합연산자  >> '안녕' || '방가' >> '안녕방가'
+        //Tip ) java에서는 특수문자의 사용 ?
+        //이스케이프 문자 >> 특정한 문자 앞에 \
+        char sing = '\'';
+        System.out.println(sing);
+
+        //역슬러시(\) 결합하면 문자로 인정
+        //홍"길"동 string 변수에 담아서 출력해보세요
+        String result = "홍\"길\"동";
+        System.out.println(result);
+
+        String str3 = "1000";
+        String str4 = "10";
+        result = str3 + str4;
+        System.out.println(result); //100010
+
+        //형변환 (+ 산술 , 결합)
+        System.out.println("100" + 100);//100100
+        System.out.println(100 + "100");//100100
+        System.out.println(100 + 100 + "100");//200100
+        System.out.println(100 + (100 + "100"));//100100100
+        System.out.println(100 + "100" + 100);//100100100
+
+        //C:\temp >>String
+        String str = "C:\\temp";
+        System.out.println(str); // '\t' 는 특수문자처리가 됩니다.. >>tab이 됩니다.        \n  >>  new line
+
+        String path2 = "\ta\ta\ta";
+        System.out.println(path2); //	a	a	a 가 출력됨.
+
+
+        //실수형 (부동소수점)
+        /*
+        float ( 4byte )
+        double ( 8byte ) ***실수 리터럴의 기본 타입 : double ***
+
+
+
+         */
+//        float f = 3.14; //?? 안됨 >> 왜 안들어감???
+        //실수 리터럴의 기본 타입은 double형 이기때문에 f형으로 형변환을 해주어야합니다.
+
+        float f = 3.14F; //접미사
+        float f1 = (float) 3.14; //캐스팅
+
+        //방식은 두개입니다.
+        //1.접미사(f, F) float
+        System.out.println("f   :   " + f);
+        System.out.printf("%.4f\n", f);
+
+        float f2 = 1.123456789f;
+        System.out.println(f2); //1.1234568 >>float타입은 소수를 대략 7자리까지는 가능합니다
+        //소수이하 대략 7자리
+        //default 반올림
+
+        double d = 1.123456789123456789; //기본형이 double이라 담김.. ㅇㅇ
+        System.out.println(d); //1.1234567891234568 >>16자리 까지 표현됩니다.
+        //default 반올림
+
+        //float 추후에 2진 등등에 대해 배울거임 ㅇㅇㅇ
+        System.out.println((byte) 128);
+        //byte 8bit>> -128 ~ 127 >>
+        // overflow 가 발생하면 (그릇이 넘침) -128로 돌아옵니다 (순환)
 
 
     }
-
 
 }
 
