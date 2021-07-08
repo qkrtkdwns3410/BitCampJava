@@ -225,6 +225,32 @@ public class Ex02_DataType {
         //byte 8bit>> -128 ~ 127 >>
         // overflow 가 발생하면 (그릇이 넘침) -128로 돌아옵니다 (순환)
 
+        byte by = (byte) 129;
+        System.out.println("순환 : overflow : " + by); //-127 2만큼 over되어서 -127이 출력됩니다..
+
+        double d2 = 100; //int랑 double이랑 싸우면 double이 이김.. double이 8바이트임. (암시적 형변환이 발생했습니다.)
+        System.out.println(d2); //100.0
+
+
+
+
+        //Quiz
+        double d3 = 100; //100.0
+        int i5 = 100;//100
+
+        //데이터 절삭의 문제 발생때문에
+        double result2 = d3 + i5;//100.0+100 ->200.0
+        System.out.println(result2);
+
+        //Today Point
+        //작은 타입 + 큰 타입 >> 큰 타입
+        //명시적 형변환을 항상 고민을 해보자 (캐스팅에 대한 고민>> 손실분에 대한 고민)
+
+        int i6 = 100;
+        byte b2 = (byte) i6; //명시적 형변환 >> 데이터 손실에 대한 고민을 항상 해야합니다.
+        System.out.println(b2);
+
+
 
     }
 
