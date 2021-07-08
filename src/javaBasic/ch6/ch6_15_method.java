@@ -13,6 +13,7 @@ public class ch6_15_method {
     }
     public static void main(String[] args) {
 
+
     }
 
 }
