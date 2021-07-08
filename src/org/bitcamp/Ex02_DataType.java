@@ -38,7 +38,7 @@ class Car {
     int window;
 }
 
-public class Ex01_DataType {
+public class Ex02_DataType {
     public static void main(String[] args) {
         //primative type >> 8개
         //class type >> string, integer 등등..
@@ -63,7 +63,7 @@ public class Ex01_DataType {
 //        System.out.println(j);//variable j might not have been initialized:Error
 
         int k;
-        k = j; //POINT (j안에는 """"값 할당"""""이 되어 있습니다. >>
+        k = j; //POINT (j안에는 """""값 할당"""""이 되어 있습니다. >>
         System.out.println("k : " + k); //100
         k = 300;
         System.out.println("k :" + k);//300
@@ -72,6 +72,18 @@ public class Ex01_DataType {
         int p = 1, g = 2, q = 3; //여러개의 선언은 가능합니다.. 근데 초기화를 못함>>엥 되는데>
         //같은 타입의 변수 3개를 만드시고 값을 넣으세요
         int[] arr = new int[3]; //배열을 사용해야합니다. //연속적으로 같은 타입은 배열을 사용해야합니다.
+
+        //int (-21 ~21)...
+        //literal >> (사전적 의미) 있는 그대로의 문자 >> 소스 코드에서 개발자가 직접 입력한 값
+        //정수 리터럴 [*****  정수를 표현하는 기본 값 (default) : int  범위 ]
+        int a = 100000;
+        long l = 100000; //정수 값은 4바이트 그릇(int)에 담겨있는 건데.... >> 8바이트에 담겨있는 모양새(long)를 하고있는거임 >> **암묵적 형변환** 입니다.
+        //long l =10000000000; //long형이라면 담을 수 있을텐데...
+        //에러 발생. . 당신의 입력한 정수 리터럴은 .. out of range .. >> """""""""""""정수는 기본적으로 int로 담기기때문입니다"""""""""""""
+
+        long b = 10000000000L; //강제로 그릇의 크기를 늘립니다. >> 4바이트 >>8바이트로  //
+
+//        int p2 = 10000000000L; >>타입 문제가 발생합니다. !
     }
 
 
