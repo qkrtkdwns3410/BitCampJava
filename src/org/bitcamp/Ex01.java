@@ -1,4 +1,4 @@
-package bitcamp;
+package org.bitcamp;
 
 //라인 주석
 /*

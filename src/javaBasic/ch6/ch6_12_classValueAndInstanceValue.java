@@ -24,14 +24,28 @@ class Card {
 
 public class ch6_12_classValueAndInstanceValue {
     public static void main(String[] args) {
-        Card c = new Card();//객체 생성
-        //객체의 사용
-        //객체 변수 ( 각각의 객체마다 다른값을 의미합니다)
-        c.kind = "HEART";
-        c.number = 5;
-        //클래스 변수 (static)
-        c.width = 200;
-        c.height = 300;
+
+        //cv는 객체의 생성없이 호출가능합니다. (전역임)
+        System.out.println("Card.width = "+ Card.width);
+        System.out.println("Card.height = " + Card.height);
+
+        Card c1 = new Card();
+        c1.kind = "Heart";
+        c1.number = 7;
+
+        Card c2 = new Card();
+        c2.kind = "Spade";
+        c2.number = 4;
+
+        //iv 선언 c1 c2 ,..
+        c1.width = 50;
+        c1.height = 80;
+        //iv변경이 아니라 cv의 변경입니다...
+        //Card 객체 자체의 width 와 height 가 50 과 80으로 변경됩니디ㅏ.
+        //결국 c2의 값도 바뀌게 됩니다. cv이니까~
+
+
+
     }
 }
 

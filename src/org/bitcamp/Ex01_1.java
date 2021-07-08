@@ -1,4 +1,4 @@
-package bitcamp;
+package org.bitcamp;
 
 
 /*스택 힙 영역 생성
