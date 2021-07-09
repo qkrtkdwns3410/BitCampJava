@@ -1,5 +1,7 @@
 package org.bitcamp;
 
+import com.sun.xml.internal.ws.wsdl.writer.document.StartWithExtensionsType;
+
 /*
 연산자...
 
@@ -281,6 +283,131 @@ public class Ex04_Operation {
         }
         System.out.println(month + " 달의 일수는 : " + res);
         System.out.println("*********************************************************************************************");
+
+
+        //난수 (랜덤값 : 임의의 추출값) //자바 api에서 이미 설계되어 있습니다. ㅇㅇ
+        //
+        result = (int) (Math.random() * 45) + 1;
+        //구조 (의미있는 폴더 구조 : package)
+        // 어떤 자원을 사용하려면 폴더를 열어서 :import
+        //ex ) java.lang.System >> import java.lang.System 사용가능
+        //어..java.lang 을 쓴적이 없는데?
+        //java언어의 제일 큰 상자는 java입니다. ..
+        /*
+        [java.lang] 이 생략되어 있는거임 ㅇㅇ Object..
+        객체지향언어는 명백은 이유가 존재....
+
+
+        Math클래스 ( 수학 관련된 여러가지 자원 : static ) >> new 하지 않고도 사용 가능합니다.(new안해도 메모리에 올라갑니다 )
+
+        //Math.Random()
+
+     */
+
+        System.out.println("Math.random() : " + Math.random());
+        //로또가 아님.. 같은 값이 나올 수도 있습니다.;;
+        //경품 or 로또 프로그램을 만들 수 있습니다...
+
+        System.out.println("Math.random() * 10: " + (int) (Math.random() * 10 + 1)); //1부터 10미만까지..랜덤입니다.
+
+        /*
+        문제를 풀어 보세요
+	  		--3분 또는 2분이 같이 풀어보세요
+	  		--문제를 푸시면 지금까지 배운 것 이해 하고 있으신 거죠
+	  		우리는 백화점 경품 시스템을 만들려고 한다
+	  		경품 시스템은 나오는 점수에 따라 경품을 지급하는 시스템이다
+
+	  		경품 추첨시 1000 점수가 나오면
+	  		경품으로 TV , NoteBook , 냉장고 , 한우세트 , 휴지
+
+	  		경품 추첨시 900 점수가 나오면
+	  		경품으로  NoteBook , 냉장고 , 한우세트 , 휴지
+
+	  		경품 추첨시 800 점수가 나오면
+	  		경품으로  냉장고 , 한우세트 , 휴지
+
+	  		경품 추첨시 700 점수가 나오면
+	  		경품으로  한우세트 , 휴지
+
+	  		경품 추첨시 600 점수가 나오면
+	  		경품으로  휴지
+
+	  		그외 점수는 100 ~ 500 까지는 칫솔
+
+	  		경품시스템의 점수 범위는 100 ~ 1000 점까지 한정되어 있다
+	  		사용자가 경품 시스템을 사용시 랜덤하게 100 ~ 1000까지의 값이 나오게 되어 있습니다.
+         */
+
+
+        int randomNum = (int) ((Math.random() * 10) + 1) * 100; //최대값 100 ~ 1100미만 라서
+        //1000까지만 출력됩니다.
+
+        System.out.println("랜덤값은 : " + randomNum + "입니다");
+
+//
+//        if (randomNum == 1000) {
+//            System.out.println("경품 : TV , NoteBook , 냉장고 , 한우세트 , 휴지 ");
+//        } else if (randomNum == 900) {
+//            System.out.println("경품 : NoteBook , 냉장고 , 한우세트 , 휴지 ");
+//        } else if (randomNum == 800) {
+//            System.out.println("경품 : 냉장고 , 한우세트 , 휴지 ");
+//        } else if (randomNum == 700) {
+//            System.out.println("경품 : 한우세트 , 휴지 ");
+//        } else if (randomNum == 600) {
+//            System.out.println("경품 : 휴지");
+//        } else if (randomNum >= 100 && randomNum <= 500) {
+//            System.out.println("경품 : 칫솔");
+//        } else {
+//            System.out.println("꽝입니다.");
+//        }
+
+
+
+
+        String msg = "고객님의 점수는 :" + randomNum + " 이고 상품은: ";
+        System.out.println("추첨번호: " + randomNum);
+
+        switch (randomNum) {
+            case 1000:
+                msg += "Tv ";
+            case 900:
+                msg += "NoteBook ";
+            case 800:
+                msg += "냉장고 ";
+            case 700:
+                msg += "한우 ";
+            case 600:
+                msg += "휴지 ";
+            default:
+                msg += "칫솔 ";
+        }
+        System.out.println(msg);
+
+        //if문은 조건없이 boolean 형, switch 문은 정수형 (byte ,short,  int) 과 [문자형(char)]  , [문자열(String)].... 사용가능
+
+        //switch 문은 long  boolean , float , double  형 사용 불가능합니다.
+        String m = "F";
+        String r = "";
+        switch (m) {
+            case "A" :
+            case "B" :
+            case "C" :
+            case "D" :
+            case "E" :
+            case "F" :
+            case "G" :
+                r = "ok";
+                break;
+            case "H":
+                r = "ro";
+                break;
+            case "K":
+                r = "no";
+                break;
+            default:
+                r = "no data";
+        }
+        System.out.println(r);
 
     }
 
