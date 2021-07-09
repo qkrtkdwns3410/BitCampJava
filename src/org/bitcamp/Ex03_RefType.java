@@ -10,6 +10,7 @@ package org.bitcamp;
 (new 연산자를 통해서 memory를 생성... >> 만들어 진 것을  (객체:instance))
 
 ●설계도 종류 2가지
+
 1.독자적인 클래스 (main이 없음) >>도와주는 역할 >>라이브러리(lib)
 class Atp { } //조력자
 
@@ -17,6 +18,7 @@ class Atp { } //조력자
 class Program{psvm} //혼자서도 잘해요
 
  */
+
 class Apt2 { //같은 폴더 안에 같은 이름 클래스는 안됨미더
     int door = 10; //instance variable //범용 적 : member field ...
     int window = 20;

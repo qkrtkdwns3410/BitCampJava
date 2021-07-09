@@ -5,15 +5,11 @@ import java.util.Scanner;
 public class Algorithm {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
-
-        int N = sc.nextInt();
-        int Sum = 0;
-        for (int i = 1; i <= N; i++) {
-            if (i % 3 == 0 || i % 5 == 0) {
-                Sum += i;
-            }
+        int[] arr = new int[2];
+        for (int i = 0; i < 2; i++) {
+            arr[i] = sc.nextInt();
         }
-        System.out.println(Sum);
+        System.out.println(arr[0] >>arr[1]);
+        System.out.println(arr[0] <<arr[1]);
     }
-
 }

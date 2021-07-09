@@ -15,7 +15,10 @@ package javaBasic.ch7;
 Circle has a point. >>자연스러움. ㅇㅇ
 >>포함관계로 개별 point 객체를 생성해주어야합니다.
 
+일반적인 경우 90% 이상은 포함(Composite)
+그 외의 경우는 상속 (inheritance) ..
 
+상속은 꼭 필요한 경우에만 하도록 합시다..
 
  */
 class Point {
