@@ -21,18 +21,29 @@ Circle has a point. >>자연스러움. ㅇㅇ
 상속은 꼭 필요한 경우에만 하도록 합시다..
 
  */
-class Point {
+class MyPoint {
     int x;
     int y;
 }
 
-class Circle {
-    Point c = new Point();
-    int r; //반지름
+//class Circle extends MyPoint { //상속
+//    int r;
+//
+//}
+class Circle { //포함 인스턴스 메서드
+    MyPoint p = new MyPoint(); //참조 변수의 초기화
+    int r;
+
+
 }
 
 public class ch7_3_compositeRelation {
     public static void main(String[] args) {
+        Circle c = new Circle();
+        c.p.x = 1;
+        c.p.y = 1;
+        c.r = 1;
+
 
     }
 }
