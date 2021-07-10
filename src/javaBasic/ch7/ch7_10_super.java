@@ -10,6 +10,10 @@ super는 조상멤버와 자신의 멤버를 구별할 때 사용합니다.
 ///
 -조상의 멤버를 자신의 멤버와 구별할 때 사용합니다.
 
+super() 조상의 생성자
+super랑 관계없음
+>>조상의 생성자를 호출할 때 사용합니다
+>>조상의 멤버는 조상의 생성자를 호출해서 초기화합니다.
  */
 public class ch7_10_super {
     public static void main(String[] args) {
