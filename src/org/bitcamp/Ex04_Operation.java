@@ -71,6 +71,7 @@ public class Ex04_Operation {
 
         정수 + 실수 >>  타입 크기와 상관없이 실수가 승자입니다.
          */
+
         long ln = 1000000000L; //1000000000>>정수형은 기본으로 int형으로 인식 별도의 접미사 >> [L]로 long타입이라는 것을 인식을 시켜줘야함
         float fl = 1.2f; //실수형은 기본으로 double 형으로 인식하기에 >> 접미사로 [f]
         float lnresult = fl + ln; //실수 우선이기에 result 를 float으로 ...........
@@ -209,7 +210,7 @@ public class Ex04_Operation {
 
         //short curcit -숏서킷 연산
         &&의 경우에는 모든 조건을 다 확인해야합니다 >> 중간에 거짓되는 조건문이 존재한다면  >> 연산을 생략
-        ||의 경우에는  참인 조건 하나만 확인합니다       >> 참이되는 조건문이 존재하면다면          >> 연산을 생략합니다.
+        ||의 경우에는  참인 조건 하나만 확인합니다    >> 참이되는 조건문이 존재하면다면          >> 연산을 생략합니다.
 
 
 
@@ -245,7 +246,7 @@ public class Ex04_Operation {
                 System.out.println("100 입니다");
 
             case 90:
-                System.out.println("90 입니다"); //break없으니까 어쩔줄 모름.. 다음 실행블록으로 가버림... >> 90부터 밑의 모든 값이 나옵니다... .> 컴퓨터 걍 개병신임 ㅇㅇ;
+                System.out.println("90 입니다"); //break없으니까 어쩔줄 모름.. 다음 실행블록으로 가버림... >> 90부터 밑의 모든 값이 나옵니다... .>
 
             case 80:
                 System.out.println("80 입니다");
@@ -339,14 +340,14 @@ public class Ex04_Operation {
          */
 
 
-        int randomNum = (int) ((Math.random() * 10) + 1) * 100; //최대값 100 ~ 1100미만 라서
+        int randomNum = (int) ((Math.random() * 10) + 1) * 100; //최대값 100 ~ 1100 미만 라서
         //1000까지만 출력됩니다.
 
         System.out.println("랜덤값은 : " + randomNum + "입니다");
 
 //
 //        if (randomNum == 1000) {
-//            System.out.println("경품 : TV , NoteBook , 냉장고 , 한우세트 , 휴지 ");
+//            System.out.println("경품 : TV , NoteBook , 냉장고. , 한우세트 , 휴지 ");
 //        } else if (randomNum == 900) {
 //            System.out.println("경품 : NoteBook , 냉장고 , 한우세트 , 휴지 ");
 //        } else if (randomNum == 800) {
@@ -378,6 +379,7 @@ public class Ex04_Operation {
                 msg += "한우 ";
             case 600:
                 msg += "휴지 ";
+                break;
             default:
                 msg += "칫솔 ";
         }
@@ -386,6 +388,7 @@ public class Ex04_Operation {
         //if문은 조건없이 boolean 형, switch 문은 정수형 (byte ,short,  int) 과 [문자형(char)]  , [문자열(String)].... 사용가능
 
         //switch 문은 long  boolean , float , double  형 사용 불가능합니다.
+
         String m = "F";
         String r = "";
         switch (m) {

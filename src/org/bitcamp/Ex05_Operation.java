@@ -25,7 +25,6 @@ public class Ex05_Operation {
         String grade = ""; //지역변수는 항상 사용전에 초기화를 하십시오!!!!
         System.out.println("당신의 점수 : " + score);
 
-
         //로직
         if (score >= 90) {
             grade = "A";
