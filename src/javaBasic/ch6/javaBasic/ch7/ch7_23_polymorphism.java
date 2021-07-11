@@ -1,5 +1,4 @@
-package javaBasic.ch7;
-
+package javaBasic.ch6.javaBasic.ch7;
 
 /*
 다형성(polymorphism)
@@ -18,29 +17,13 @@ SmartTv s = new Tv(); >>불가능 .. 있는 기능을 사용하지 않는 것은
  */
 public class ch7_23_polymorphism {
     public static void main(String[] args) {
-        Car2 c = new Car2();
-        FireEngine fe = (FireEngine) c; //형변환 실행 에러 > java.lang.ClassCaseException..
+        Car car = null;
+        FireEngine fe = new FireEngine();
+        FireEngine fe2 = new FireEngine();
+
         fe.water();
-    }
-}
+        car = fe;
 
-class Car2 {
-    String color;
-    int door;
-
-    void drive() {
-        System.out.println("드라이브!");
-    }
-
-    void stop() {
-        System.out.println("멈춰");
-    }
-
-}
-
-class FireEngine extends Car2 {
-    void water() {
-        System.out.println("물 나옵니다!");
     }
 }
 

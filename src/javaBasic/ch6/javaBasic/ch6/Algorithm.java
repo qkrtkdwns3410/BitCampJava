@@ -1,4 +1,4 @@
-package javaBasic.ch6;
+package javaBasic.ch6.javaBasic.ch6;
 
 import java.util.Scanner;
 
