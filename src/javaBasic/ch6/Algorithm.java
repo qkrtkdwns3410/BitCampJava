@@ -1,33 +1,36 @@
 package javaBasic.ch6;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class Algorithm {
     public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        int num = sc.nextInt();
+        int count = 0;
+        //문자를 하나씩 ..확인해서 박수
+        for (int i = 1; i < num; i++) {
+            if (i < 10) {
+                if (i % 3 == 0) {
+                    count++;
+                }
+            } else { //10이상이라면
+                String a = Integer.toString(i); //숫자를 스트링으로 받아 분리해서 String형 배열 numa에 넣고
+                String[] numa = a.split("");
 
-/*
- 어느 학생의 기말고사 시험점수 (5과목)
-		 int sum=0;
-		 float average = 0f;
-		 int[] jumsu = {100,55,90,60,78};
+//                for (int k = 0; k < numa.length; k++) {
+//                    System.out.println(numa[k]);
+//                }
 
-		 1. 총과목의 수
-		 2. 과목의 합
-		 3. 과목의 평균
-		 단 2,3  문제는 하나의  for  으로 해결하세요
-*/
-        int sum = 0;
-        float average = 0f;
-        int[] jumsu = {100, 55, 90, 60, 78};
-
-        for (int i = 0; i < jumsu.length; i++) {
-            sum += jumsu[i];
-            if (i == jumsu.length - 1) { //점수 배열의 마지막에 들어가면
-                average = sum / (float) jumsu.length;
+                for (int j = 0; j < numa.length; j++) {
+                    if (numa[j].contains("3") || numa[j].contains("6") || numa[j].contains("9")) {
+                        count++;
+                    }
+                }
             }
         }
-        System.out.println(average);
-        System.out.println(sum);
+        System.out.println(count);
+
+
     }
 }
+
