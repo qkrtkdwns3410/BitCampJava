@@ -42,7 +42,7 @@ public class Ex05_Operation {
             }
         } else if (score >= 70) {
             grade = "C";
-            grade= (score >= 75) ? (grade += "+") : (grade += "-"); //삼항연산자
+            grade= (score >= 75) ? (grade += "+") : (grade += "-"); //삼항연산자 //중요
         } else {
             grade = "F";
         }
