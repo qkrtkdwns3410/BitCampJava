@@ -36,6 +36,7 @@ public class Ex06_Printf_format {
         //입력 (콘솔창에 사용자가 입력한 값을 받을 수 있습니다)
 
         Scanner sc = new Scanner(System.in); //스캐너가 클래스라서 메모리에 올려야합니다.
+
         //생성자를 통해서 입력한 값을 읽습니다.
 
         //여러분이 사용하는 모든 자원은 package 안에 있습니다.

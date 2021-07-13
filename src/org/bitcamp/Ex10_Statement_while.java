@@ -5,60 +5,91 @@ import java.util.Scanner;
 public class Ex10_Statement_while {
     public static void main(String[] args) {
 
-        boolean auto = true;
-        int balance = 0; //잔액
+        //[제어문 조별과제]
+        //컴퓨터가 자동으로 나온 가위, 바위, 보에 대해서 사용자가 값을 입력해서 처리하세요
+        //가위=1, 바위=2, 보=3
+
+
         Scanner sc = new Scanner(System.in);
-        int money = 0; //
+        int com = (int) (Math.random() * 3) + 1;
+        String result = "";
+        String result2 = "";
 
-        while (auto) {
+        int human = 0;
+        boolean power = true;
 
-            System.out.println("***************************************************");
-            System.out.println("1.  예금   |   2.  출금   |   3.  잔고   |   4.  종료");
-            System.out.println("***************************************************");
+        while (power) {
 
-            System.out.println("선택");
-            int input = Integer.parseInt(sc.nextLine());
+            result = "";
+            System.out.println("(가위=1, 바위=2, 보=3)");
+            System.out.print("당신의 선택은 ?");
 
-            switch (input) {
+            human = Integer.parseInt(sc.nextLine()); //숫자값..
+            System.out.println();
 
-                case 1:
-                    System.out.print("예금할 금액은? ");
-                    money = Integer.parseInt(sc.nextLine());
-                balance += money;
-                    break;
-
-                case 2:
-                    System.out.print("출금할 금액은? ");
-                    money = Integer.parseInt(sc.nextLine());
-
-                    if (money <= balance) {
-                        balance -= money;
-                    } else {
-                        System.out.println("잔액이 부족합니다");
-                    }
-                    break;
-
-                case 3:
-                    System.out.println("잔고는 " + balance);
-                    break;
-
-                case 4:
-                    System.out.println("종료");
-                    auto = false; //논리를 이용해서 while(false)탈출
-                    break;
-
-                default:
-                    System.out.println("올바른 메뉴를 선택해주세요.");
-
+            //에러 체크
+            if (human > 3 || human < 0) {
+                System.out.println("잘못된 값을 입력하셨습니다!");
+                continue;
             }
+
+            //판단
+            if (com == human) {
+                System.out.println("비겼다!");
+
+            } else if (com == 1) {
+                result = (human == 2) ? "이겼다" : "졌다";
+
+            } else if (com == 2) {
+                result = (human == 3) ? "이겼다" : "졌다";
+
+            } else {
+                result = (human == 1) ? "이겼다" : "졌다";
+            }
+            System.out.println(result);
+            System.out.println();
+            System.out.println("컴퓨터의 선택 : " + com);
+
+
+            //다시시작??
+            while (true) {
+                System.out.print("게임을 다시하시겠습니까? ( Y / N ) ");
+
+                result2 = sc.nextLine();
+
+                if (result2.equals("Y")) { //새로운 값으로 다시 시작
+                    com = (int) (Math.random() * 3) + 1;                                //다시 시작하는 경우 : 랜덤값의 재할당.
+                    System.out.println("가위바위보를 다시시작합니다! \n");
+                    System.out.println("-------------------------------------");
+                    break;
+
+                } else if (result2.equals("N")) {
+                    power = false;
+                    break;
+
+                } else {
+                    System.out.println("잘못된 값을 입력하셨습니다.\n");
+                    System.out.println("------------------------------------------");
+
+                }
+            }
+            System.out.println();
+
         }
 
 
-
-
-
-
+        System.out.println("컴퓨터의 선택 : " + com);
+        System.out.println("게임 종료!");
+        System.out.println("------------------------------------------");
 
     }
 }
+
+
+
+
+
+
+
+
 

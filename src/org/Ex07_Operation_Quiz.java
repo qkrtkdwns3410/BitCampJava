@@ -53,7 +53,9 @@ public class Ex07_Operation_Quiz {
         } else if (str.equals("/")) {
             result =num1/num2;
             System.out.printf("%d\n", result);
+
         } else {
+
             System.out.println("지원하지 않는 연산자 입니다.");
             //return >> 메인 함수안에서 실행중인데..[함수단위]]종결자 > main함수 탈출 > 종료
             return;
@@ -93,9 +95,7 @@ public class Ex07_Operation_Quiz {
 
             switch(ch){
             case '+' : ~~~
-            }
-
-        ********************************************************************************
+            *****************************
 
          */
 //문자열의 비교는 equals라는 것 안에서 처리하자.
